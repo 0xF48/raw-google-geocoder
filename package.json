@@ -1,0 +1,24 @@
+{
+  "name": "keyless-google-geocoder",
+  "version": "0.0.1",
+  "description": "geocode any address straight from google via google.com/search",
+  "main": "index.js",
+  "scripts": {
+    "test": "coffee -cbo index.js keyless-google-geocoder.coffee && coffee -cbo test.js test.coffee  && node test.js",
+    "prepublish": "coffee -cbo index.js keyless-google-geocoder.coffee && coffee -cbo test.js test.coffee  && node test.js"
+  },
+  "author": "",
+  "keywords": [
+    "google",
+    "geocoder",
+    "nokey"
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "request": "^2.83.0",
+    "tape": "^4.8.0"
+  },
+  "dependencies": {
+    "urlencode": "^1.1.0"
+  }
+}
