@@ -21,8 +21,8 @@ request(query,function(error,res,body){
 })
 ```
 
-[tests]: https://img.shields.io/travis/webpack/webpack/master.svg
-[tests-url]: https://travis-ci.org/webpack/webpack
+[tests]: https://img.shields.io/travis/arxii/keyless-google-geocoder/master.svg?style=flat-square
+[tests-url]: https://travis-ci.org/arxii/keyless-google-geocoder
 
-[npm]: https://img.shields.io/npm/v/webpack.svg
-[npm-url]: https://npmjs.com/package/webpack
+[npm]: https://img.shields.io/npm/v/keyless-google-geocoder.svg
+[npm-url]: https://npmjs.com/arxii/keyless-google-geocoder
