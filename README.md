@@ -24,5 +24,5 @@ request(query,function(error,res,body){
 [tests]: https://img.shields.io/travis/arxii/keyless-google-geocoder/master.svg?style=flat-square
 [tests-url]: https://travis-ci.org/arxii/keyless-google-geocoder
 
-[npm]: https://img.shields.io/npm/v/keyless-google-geocoder.svg
+[npm]: https://img.shields.io/npm/v/keyless-google-geocoder.svg?style=flat-square
 [npm-url]: https://npmjs.com/arxii/keyless-google-geocoder
