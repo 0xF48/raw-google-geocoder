@@ -2,7 +2,7 @@
 [![npm][npm]][npm-url]
 [![tests][tests]][tests-url]
 
-`npm install keyless-google-geocoder`
+`npm i keyless-google-geocoder`
 
 Lost your google maps api key? No worries, this tiny module helps you parse and serialize queries straight from google.com/search, Works great with addresses in latin but regex support for other characters is welcome. Please note that google may change their schema at any time, so anyone is welcome to update the query/regex accordingly and send a pull request!
 
@@ -26,4 +26,4 @@ request(query,function(error,res,body){
 [tests-url]: https://travis-ci.org/arxii/keyless-google-geocoder
 
 [npm]: https://img.shields.io/npm/v/keyless-google-geocoder.svg?style=flat-square
-[npm-url]: https://npmjs.com/arxii/keyless-google-geocoder
+[npm-url]: https://npmjs.com/keyless-google-geocoder

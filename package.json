@@ -1,6 +1,6 @@
 {
   "name": "keyless-google-geocoder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "geocode any address straight from google via google.com/search",
   "main": "index.js",
   "scripts": {
