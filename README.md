@@ -1,9 +1,10 @@
 # Keyless Google Geocoder
 [![npm][npm]][npm-url]
 [![tests][tests]][tests-url]
+
 `npm install keyless-google-geocoder`
 
-Lost your google maps api key? No worries, this tiny module helps you parse and serialize queries straight from google.com/search, Works great with addresses in latin but regex support for other characters is welcome. Please note that google may change their schema at any time, so anyone is welcome to update the regex accordingly and send a pull request!
+Lost your google maps api key? No worries, this tiny module helps you parse and serialize queries straight from google.com/search, Works great with addresses in latin but regex support for other characters is welcome. Please note that google may change their schema at any time, so anyone is welcome to update the query/regex accordingly and send a pull request!
 
 ```javascript
 var request = require('request')
