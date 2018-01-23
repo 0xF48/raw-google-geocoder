@@ -11,6 +11,6 @@ branches:
     - master
 os: linux
 install:
-  - npm i coffee -g
+  - npm i coffee-script -g
   - npm i
 script: npm run test
