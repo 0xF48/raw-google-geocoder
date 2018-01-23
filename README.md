@@ -6,13 +6,15 @@
 [![tests][tests]][tests-url]
 
 
-lost your google maps api key? no worries. this tiny module helps you parse and serialize queries straight from google.com/search. Since extracting data from google search results with regex is never perfect, the regex is not optimal. Even though it does supports a some latin letters, its best used with english addresses. Works great for western countries. Regex support for other countries/regions is welcome. If you use this, please note that google may change their schema at any time, so update the regex accordingly and send a pull request!
+Lost your google maps api key? no worries. this tiny module helps you parse and serialize queries straight from google.com/search. Works great with addresses in latin. Regex support for other characters is welcome. Please note that google may change their schema at any time, anyone is welcome to update the regex accordingly and send a pull request!
 
 
 ```javascript
 var request = require('request')
 var geocoder = require('keyless-google-geocoder')
-query = geocoder.serialize('RUA PAULINA ISABEL DE QUEIROS,, BANGU, SANTO ANDRE, 09210260, br')
+
+#contains common parameters such as the url that can passed straight to the request module.
+var query_object = geocoder.serialize('RUA PAULINA ISABEL DE QUEIROS,, BANGU, SANTO ANDRE, 09210260, br')
 request(query,function(error,res,body){
 	console.log geocoder.parse(body)
 	/*
