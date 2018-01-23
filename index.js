@@ -3,11 +3,13 @@ var enc, parse, serialize;
 
 enc = require('urlencode');
 
+// serialize address as a query
 serialize = function(address) {
   var query, url;
   query = enc(address);
-  url = `https://www.google.com/search?tbm=map&fp=1&q=${query //copied straight from chrome inspector
-}`;
+  url = `https://www.google.com/search?tbm=map&fp=1&authuser=0&hl=en&gl=us&q=${query}&oq=${query
+  //copied straight from chrome inspector
+}&tch=1&ech=1&psi=tq5nWp-hNcuotQWQqLaICQ.1516744376157.1`;
   return {
     method: 'get',
     url: url,
@@ -22,8 +24,9 @@ serialize = function(address) {
   };
 };
 
+// parse the google response body and try and choose the right address.
 parse = function(body) {
-  var addr, addr1, addr2, e, lat, lon, match;
+  var addr, addr1, addr2, e, i, lat, len, lon, match, pickone;
   addr = lat = lon = addr1 = addr2 = null;
   try {
     [lat, lon] = body.match(/null,((?:\-|\+)?\d?\d?\d\.\d+\,(?:\-|\+)?\d\d?\d?.\d+)]/)[1].split(',');
@@ -34,14 +37,15 @@ parse = function(body) {
     console.error('could not parse lat/lon');
   }
   try {
-    match = body.match(/,\\"([A-Za-z\u00C0-\u00FF\u2000-\u206F\u2E00-\u2E7F#\-,. \d]+ [A-Za-z\u00C0-\u00FF\u2000-\u206F\u2E00-\u2E7F#,. \-\d]+)\\"/g);
-    [addr1, addr2] = match;
-    if (!addr2 || (addr1 && addr1.length > addr2.length)) {
-      addr = addr1;
-    } else {
-      addr = addr2;
+    match = body.match(/,\\"([A-Za-z\u00C0-\u00FF\u2000-\u206F\u2E00-\u2E7F#\-,. \d]+, [A-Za-z\u00C0-\u00FF\u2000-\u206F\u2E00-\u2E7F#,. \-\d]+)\\"/g);
+    pickone = null;
+    for (i = 0, len = match.length; i < len; i++) {
+      addr = match[i];
+      if (!pickone || addr.length > pickone.length) {
+        pickone = addr;
+      }
     }
-    addr = addr.match(/([A-Za-z\u00C0-\u00FF\u2000-\u206F\u2E00-\u2E7F#\-,. \d]+)/g)[1];
+    addr = pickone.match(/([A-Za-z\u00C0-\u00FF\u2000-\u206F\u2E00-\u2E7F#\-,. \d]+)/g)[1];
   } catch (error) {
     e = error;
     console.error('could not parse address');

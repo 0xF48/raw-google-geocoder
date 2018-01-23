@@ -1,11 +1,11 @@
 {
   "name": "raw-google-geocoder",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "raw google geocode any address without an api or key",
   "main": "index.js",
   "scripts": {
     "build": "coffee -cbo index.js raw-google-geocoder.coffee && coffee -cbo test.js test.coffee",
-    "test": "node test.js",
+    "test": "npm run build && node test.js",
     "prepublishOnly": "coffee -cbo index.js raw-google-geocoder.coffee && coffee -cbo test.js test.coffee && node test.js"
   },
   "repository": {

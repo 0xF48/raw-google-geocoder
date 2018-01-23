@@ -1,6 +1,7 @@
 kgg = require './index.js'
 request = require 'request'
 test = require 'tape'
+p = require 'bluebird'
 
 raw = [
 	"L15 oHH, GB",
@@ -25,23 +26,32 @@ raw = [
 
 parsed = [
 	{ addr: 'Liscard Rd, Liverpool L15 0HH, UK',lat: 53.3984265,lon: -2.9372757999999997 },
-	{ addr: '300 Yarmouth St #323',lat: 36.851300699999996,lon: -76.2935181 },
-	{ addr: 'Gulf Shores, AL',lat: 30.246036099999998,lon: -87.70081929999999 },
-	{ addr: 'Bourtreehill North',lat: 55.620890499999994,lon: -4.6346871 },
+	{ addr: '300 Yarmouth St #323, Norfolk, VA 23510',lat: 36.851300699999996,lon: -76.2935181 },
+	{ addr: 'Gulf Shores, Alabama',lat: 30.246036099999998,lon: -87.70081929999999 },
+	{ addr: 'KA11 1LY, Whitehope Green, Bourtreehill North, Irvine, UK',lat: 55.620890499999994,lon: -4.6346871 },
 	{ addr: 'Jersey City, NJ 07097',lat: 40.7548065,lon: -74.06819879999999 },
-	{ addr: 'Slough SL2 5FZ, UK', lat: 51.5121499, lon: -0.5893836 },
+	{ addr: 'SL2 5FZ, Slough, UK', lat: 51.5121499, lon: -0.5893836 },
 	{ addr: 'Frankfort, IL 60423',lat: 41.480981899999996,lon: -87.8353278 },
-	{ addr: '5528 N Central Ave', lat: 41.9819786, lon: -87.7687093 },
-	{ addr: 'Manjunatha Layout, Ramamurthy Nagar',lat: 13.012351899999999,lon: 77.679322 },
+	{ addr: '5528 N Central Ave, Chicago, IL 60630',lat: 41.9819786,lon: -87.7687093 },
+	{ addr: 'Ramamurthy Nagar, Dooravani Nagar, Dooravani Nagar, Manjunatha Layout, Ramamurthy Nagar, Bengaluru, Karnataka 560016, India',lat: 13.012351899999999,lon: 77.679322 },
 	{ addr: '1250 N Tomcat Ct, Virginia Beach, VA 23454',lat: 36.7972982,lon: -76.0144492 },
-	{ addr: 'Epsom KT19 8FS, UK', lat: 51.3493333, lon: -0.2685448 },
+	{ addr: 'KT19 8FS, Epsom, UK', lat: 51.3493333, lon: -0.2685448 },
 	{ addr: '5581 S Edgeberry Dr, Murray, UT 84123',lat: 40.6497445,lon: -111.9279418 },
-	{ addr: 'Cromwell Rd, Bedford MK40 4LR, UK',lat: 52.1334783,lon: -0.4828512 },
+	{ addr: 'MK40 4LR, Cromwell Rd, Bedford, UK',lat: 52.1334783,lon: -0.4828512 },
 	{ addr: '8726 S Wood Creek Dr #5, Oak Creek, WI 53154',lat: 42.8861764,lon: -87.9201531 },
-	{ addr: '362 Haydn Ct, Wheaton, IL 60189',lat: 41.831451,lon: -88.109566 },
+	{ addr: 'Allo Blueprint Service, 362 Haydn Ct, Wheaton, IL 60189',lat: 41.831451,lon: -88.109566 },
 	{ addr: 'R. Paulina Isabel de Queirós - Bangú, Santo André - SP, Brazil',lat: -23.6409168,lon: -46.526493099999996 },
-	{ addr: 'Jonesboro, GA', lat: 33.5215013, lon: -84.3538128 }
+	{ addr: 'Jonesboro, Georgia', lat: 33.5215013, lon: -84.3538128 }
 ]
+
+
+# p.map(raw, (addr)->
+# 	new Promise (resolve,reject)->
+# 		request kgg.serialize(addr),(error,res,body)->
+# 			resolve(kgg.parse(body))
+# ,concurrency:1).then (parsed)->
+# 	console.log parsed
+
 
 
 
@@ -58,5 +68,3 @@ test_addr = (i)->
 
 test_addr(i) for addr,i in raw
 
-
-# test_addr(13)
