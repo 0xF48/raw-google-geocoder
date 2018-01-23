@@ -4,10 +4,15 @@
   "description": "geocode any address straight from google via google.com/search",
   "main": "index.js",
   "scripts": {
-    "test": "coffee -cbo index.js keyless-google-geocoder.coffee && coffee -cbo test.js test.coffee  && node test.js",
-    "prepublish": "coffee -cbo index.js keyless-google-geocoder.coffee && coffee -cbo test.js test.coffee  && node test.js"
+    "build": "coffee -cbo index.js keyless-google-geocoder.coffee && coffee -cbo test.js test.coffee",
+    "test": "node test.js",
+    "prepublish": "coffee -cbo index.js keyless-google-geocoder.coffee && coffee -cbo test.js test.coffee && node test.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arxii/keyless-google-geocoder.git"
+  },
+  "author": "arxii",
   "keywords": [
     "google",
     "geocoder",

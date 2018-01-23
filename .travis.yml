@@ -1,1 +1,13 @@
+sudo: true
+dist: trusty
 language: node_js
+os: linux
+node_js: "8"
+branches:
+  only:
+    - master
+os: linux
+before_script:
+  - npm i coffee -g
+  - npm i
+script: npm run test
