@@ -6,7 +6,7 @@
   "scripts": {
     "build": "coffee -cbo index.js keyless-google-geocoder.coffee && coffee -cbo test.js test.coffee",
     "test": "node test.js",
-    "prepublish": "coffee -cbo index.js keyless-google-geocoder.coffee && coffee -cbo test.js test.coffee && node test.js"
+    "prepublishOnly": "coffee -cbo index.js keyless-google-geocoder.coffee && coffee -cbo test.js test.coffee && node test.js"
   },
   "repository": {
     "type": "git",
