@@ -6,7 +6,7 @@ serialize = (address)->
 
 
 	query = enc(address)
-	url = "https://www.google.com/search?tbm=map&fp=1&authuser=0&hl=en&gl=us&q=#{query}&oq=#{query}&gs_l=maps.12..115i144k1.9659.41934.1.44751.12.12.0.0.0.0.154.154.0j1.11.0....0...1ac.1j2.64.maps..1.1.154.0...1.&tch=1&ech=1&psi=tq5nWp-hNcuotQWQqLaICQ.1516744376157.1" #copied straight from chrome inspector
+	url = "https://www.google.com/search?tbm=map&fp=1&q=#{query}" #copied straight from chrome inspector
 	method: 'get'
 	url: url
 	gzip: true
