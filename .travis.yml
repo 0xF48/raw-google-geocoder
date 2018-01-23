@@ -7,7 +7,7 @@ branches:
   only:
     - master
 os: linux
-before_script:
+install:
   - npm i coffee -g
   - npm i
 script: npm run test

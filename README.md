@@ -1,7 +1,9 @@
 # Keyless Google Geocoder
-
-
 `npm install keyless-google-geocoder`
+
+
+[![npm][npm]][npm-url]
+[![tests][tests]][tests-url]
 
 
 lost your google maps api key? no worries. this tiny module helps you parse and serialize queries straight from google.com/search. Since extracting data from google search results with regex is never perfect, the regex is not optimal. Even though it does supports a some latin letters, its best used with english addresses. Works great for western countries. Regex support for other countries/regions is welcome. If you use this, please note that google may change their schema at any time, so update the regex accordingly and send a pull request!
@@ -20,3 +22,9 @@ request(query,function(error,res,body){
 	*/	
 })
 ```
+
+[tests]: https://img.shields.io/travis/webpack/webpack/master.svg
+[tests-url]: https://travis-ci.org/webpack/webpack
+
+[npm]: https://img.shields.io/npm/v/webpack.svg
+[npm-url]: https://npmjs.com/package/webpack
