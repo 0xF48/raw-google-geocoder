@@ -10,9 +10,14 @@ Lost your google maps api key? No worries, this tiny module helps you parse and 
 var request = require('request')
 var geocoder = require('raw-google-geocoder')
 
-#contains common parameters such as the url that can passed straight to the request module.
+//object w/ url passed to the request module.
 var query_object = geocoder.serialize('RUA PAULINA ISABEL DE QUEIROS,, BANGU, SANTO ANDRE, 09210260, br')
+
+
+//make a request with request module
 request(query,function(error,res,body){
+
+	//parse the body and extract address and gps coordinates
 	console.log geocoder.parse(body)
 	/*
 	addr: 'R. Paulina Isabel de Queirós - Bangú, Santo André - SP, Brazil',
