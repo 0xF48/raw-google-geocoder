@@ -1,5 +1,4 @@
 enc = require 'urlencode'
-colors = require 'colors'
 
 # serialize address as a query
 serialize = (address)->

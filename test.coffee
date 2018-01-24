@@ -1,7 +1,7 @@
 kgg = require './index.js'
 request = require 'request'
 test = require 'tape'
-# p = require 'bluebird'
+p = require 'bluebird'
 
 raw = [
 	"L15 oHH, GB",
@@ -53,6 +53,9 @@ parsed = [
 # 	console.log parsed
 
 
+
+# request kgg.serialize('Atlanta, GA'),(error,res,body)->
+# 	r = kgg.parse(body)
 
 
 
