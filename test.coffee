@@ -1,6 +1,7 @@
 kgg = require './index.js'
 request = require 'request'
 test = require 'tape'
+# p = require 'bluebird'
 
 raw = [
 	"L15 oHH, GB",
