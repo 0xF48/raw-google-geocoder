@@ -4,7 +4,11 @@
 
 `npm i raw-google-geocoder`
 
-Lost your google maps api key? No worries, this tiny module helps you parse and serialize queries straight from google.com/search, Works great with addresses in latin but regex support for other characters is welcome. Please note that **google may change their schema at any time**, so anyone is welcome to update the query/regex accordingly and send a pull request!
+Lost your google maps api key? No worries, this tiny module helps you parse and serialize queries straight from google.com/search.
+Works good with addresses in latin.
+
+---
+If the build is starting to fail, that means the **the schema has changed** and the query/regex needs to be updated, send a pull request.
 
 ```javascript
 var request = require('request')

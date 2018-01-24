@@ -1,5 +1,4 @@
 sudo: true
-dist: trusty
 language: node_js
 os: linux
 node_js: "8"
