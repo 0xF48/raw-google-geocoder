@@ -4,11 +4,16 @@ var enc, parse, serialize;
 enc = require('urlencode');
 
 // serialize address as a query
-serialize = function(address) {
-  var query, url;
+serialize = function(address, use_https) {
+  var protocol, query, url;
   query = enc(address);
   //copied straight from chrome inspector
-  url = `https://www.google.com/search?tbm=map&fp=1&authuser=0&hl=en&gl=us&q=${query}&oq=${query}&tch=1&ech=1&psi=tq5nWp-hNcuotQWQqLaICQ.1516744376157.1`;
+  if (use_https) {
+    protocol = 'https';
+  } else {
+    protocol = 'http';
+  }
+  url = `${protocol}://www.google.com/search?tbm=map&fp=1&authuser=0&hl=en&gl=us&q=${query}&oq=${query}&tch=1&ech=1&psi=tq5nWp-hNcuotQWQqLaICQ.1516744376157.1`;
   return {
     method: 'get',
     url: url,

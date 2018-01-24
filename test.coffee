@@ -2,6 +2,7 @@ kgg = require './index.js'
 request = require 'request'
 test = require 'tape'
 p = require 'bluebird'
+FuzzySet = require 'fuzzyset.js'
 
 raw = [
 	"L15 oHH, GB",
@@ -44,6 +45,10 @@ parsed = [
 	{ addr: 'Jonesboro, Georgia', lat: 33.5215013, lon: -84.3538128 }
 ]
 
+fuzzy_set = FuzzySet parsed.map (addr)->
+	return addr.addr
+
+
 
 # p.map(raw, (addr)->
 # 	new Promise (resolve,reject)->
@@ -64,10 +69,16 @@ test_addr = (i)->
 	test raw[i], (t)->
 		request kgg.serialize(raw[i]),(error,res,body)->
 			r = kgg.parse(body)
-			t.equal(r.addr,parsed[i].addr)
-			t.equal(Math.round(r.lat*1000)/1000,Math.round(parsed[i].lat*1000)/1000)
-			t.equal(Math.round(r.lon*1000)/1000,Math.round(parsed[i].lon*1000)/1000)
+			addr_match = fuzzy_set.get(r.addr,null)
+			if addr_match != null && addr_match[0][0] > 0.5
+				t.ok r.addr,'score: '+Math.round(addr_match[0][0]*100)/100+' | '+r.addr+' ~= ' + parsed[i].addr
+			else
+				t.notOk(r.addr,r.addr+' ~!= ' + parsed[i].addr)
+
+			t.equal(Math.round(r.lat*100)/100,Math.round(parsed[i].lat*100)/100,Math.round(r.lat*100)/100 + ' ~== ' + Math.round(parsed[i].lat*100)/100)
+			t.equal(Math.round(r.lon*100)/100,Math.round(parsed[i].lon*100)/100,Math.round(r.lat*100)/100 + ' ~== ' + Math.round(parsed[i].lat*100)/100)
 			t.end()
+
 
 test_addr(i) for addr,i in raw
 

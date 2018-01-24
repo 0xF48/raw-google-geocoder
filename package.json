@@ -1,6 +1,6 @@
 {
   "name": "raw-google-geocoder",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "raw google geocode any address without an api or key",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,7 @@
   "license": "ISC",
   "devDependencies": {
     "bluebird": "^3.5.1",
+    "fuzzyset.js": "0.0.4",
     "request": "^2.83.0",
     "tape": "^4.8.0"
   },

@@ -15,7 +15,8 @@ var request = require('request')
 var geocoder = require('raw-google-geocoder')
 
 //object w/ url passed to the request module.
-var query_object = geocoder.serialize('RUA PAULINA ISABEL DE QUEIROS,, BANGU, SANTO ANDRE, 09210260, br')
+var use_https = false
+var query_object = geocoder.serialize('RUA PAULINA ISABEL DE QUEIROS,, BANGU, SANTO ANDRE, 09210260, br',use_https)
 
 
 //make a request with request module
