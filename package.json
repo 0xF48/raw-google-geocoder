@@ -1,6 +1,6 @@
 {
   "name": "raw-google-geocoder",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "raw google geocode any address without an api or key",
   "main": "index.js",
   "scripts": {
