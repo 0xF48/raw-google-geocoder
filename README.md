@@ -17,8 +17,11 @@ var query_object = geocoder.serialize('RUA PAULINA ISABEL DE QUEIROS,, BANGU, SA
 //make a request with request module
 request(query,function(error,res,body){
 
-	//parse the body and extract address and gps coordinates
-	console.log geocoder.parse(body)
+	//parse the body and extract address and gps coordinates, make sure to catch any errors for bad addresses
+	try
+		console.log geocoder.parse(body)
+	catch e
+		console.error e
 	/*
 	addr: 'R. Paulina Isabel de Queirós - Bangú, Santo André - SP, Brazil',
 	lat: -23.6418355,

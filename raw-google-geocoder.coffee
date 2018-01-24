@@ -1,9 +1,11 @@
 enc = require 'urlencode'
+colors = require 'colors'
 
 # serialize address as a query
 serialize = (address)->
 	query = enc(address)
-	url = "https://www.google.com/search?tbm=map&fp=1&authuser=0&hl=en&gl=us&q=#{query}&oq=#{query}&tch=1&ech=1&psi=tq5nWp-hNcuotQWQqLaICQ.1516744376157.1" #copied straight from chrome inspector
+	#copied straight from chrome inspector
+	url = "https://www.google.com/search?tbm=map&fp=1&authuser=0&hl=en&gl=us&q=#{query}&oq=#{query}&tch=1&ech=1&psi=tq5nWp-hNcuotQWQqLaICQ.1516744376157.1" 
 	method: 'get'
 	url: url
 	gzip: true
@@ -22,7 +24,7 @@ parse = (body)->
 		lat = Number(lat)
 		lon = Number(lon)
 	catch e
-		console.error 'could not parse lat/lon'
+		throw new Error 'RawGGeocoderError: could not parse lat/lon'
 	try
 		match = body.match(/,\\"([A-Za-z\u00C0-\u00FF\u2000-\u206F\u2E00-\u2E7F#\-,. \d]+, [A-Za-z\u00C0-\u00FF\u2000-\u206F\u2E00-\u2E7F#,. \-\d]+)\\"/g)
 		pickone = null
@@ -32,7 +34,7 @@ parse = (body)->
 
 		addr = pickone.match(/([A-Za-z\u00C0-\u00FF\u2000-\u206F\u2E00-\u2E7F#\-,. \d]+)/g)[1]
 	catch e
-		console.error 'could not parse address'
+		throw new Error 'RawGGeocoderError: could not parse address'
 	
 	return {addr,lat,lon}
 
