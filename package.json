@@ -1,12 +1,12 @@
 {
   "name": "raw-google-geocoder",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "raw google geocode any address without an api or key",
   "main": "index.js",
   "scripts": {
-    "build": "coffee -cbo index.js raw-google-geocoder.coffee && coffee -cbo test.js test.coffee",
+    "build": "coffee -cbo index.js source/raw-google-geocoder.coffee",
     "test": "npm run build && node test.js",
-    "prepublishOnly": "coffee -cbo index.js raw-google-geocoder.coffee && coffee -cbo test.js test.coffee && node test.js"
+    "prepublishOnly": "npm run build && npm run test"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "license": "ISC",
   "devDependencies": {
     "bluebird": "^3.5.1",
+    "coffeescript": "^2.2.2",
     "fuzzyset.js": "0.0.4",
     "request": "^2.83.0",
     "tape": "^4.8.0"
