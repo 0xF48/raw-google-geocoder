@@ -8,7 +8,7 @@ Lost your google maps api key? No worries, this tiny module helps you parse and 
 Works good with addresses in latin.
 
 ---
-If the build is starting to fail, that means the **the schema has changed** and the query/regex needs to be updated, send a pull request.
+If the build is starting to fail, that means either one of the addresses has been updated or the **the schema has changed** and the query/regex needs to be updated.
 
 ```javascript
 var request = require('request')

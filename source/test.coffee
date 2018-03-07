@@ -8,7 +8,6 @@ raw = [
 	"300 Yarmouth Street #323, Norfolk, VA, 23510, us",
 	"Gulf Shores, AL, 36542, us",
 	"KA111ly, GB",
-	# "N/A, Jersey City, NJ, 07097, us",
 	"SL2 5FZ, GB",
 	"Frankfort, IL, 60423, us",
 	"5528 North Central Avenue, Chicago, IL, 60630, us",
@@ -28,11 +27,10 @@ parsed = [
 	{ addr: '300 Yarmouth St #323, Norfolk, VA 23510',lat: 36.851300699999996,lon: -76.2935181 },
 	{ addr: 'Gulf Shores, Alabama',lat: 30.246036099999998,lon: -87.70081929999999 },
 	{ addr: 'KA11 1LY, Whitehope Green, Bourtreehill North, Irvine, UK',lat: 55.620890499999994,lon: -4.6346871 },
-	# { addr: 'Jersey City, NJ 07097',lat: 40.7548065,lon: -74.06819879999999 },
 	{ addr: 'SL2 5FZ, Slough, UK', lat: 51.5121499, lon: -0.5893836 },
 	{ addr: 'Frankfort, IL 60423',lat: 41.480981899999996,lon: -87.8353278 },
 	{ addr: '5528 N Central Ave, Chicago, IL 60630',lat: 41.9819786,lon: -87.7687093 },
-	{ addr: 'Anu Apartment, Maithri Layout, Kadugodi, Bengaluru, Karnataka 560067, India',lat: 12.985671,lon: 77.7545748 },
+	{ addr: 'College Annual Day Event Organiser, Kristal Jade, Bellandur, Bengaluru, Karnataka 560103, India',lat: 12.923271,lon: 77.67195199999999 },
 	{ addr: '1250 N Tomcat Ct, Virginia Beach, VA 23454',lat: 36.7972982,lon: -76.0144492 },
 	{ addr: '25 Chessington Rd, Ewell, Epsom KT19, UK', lat: 51.3493333, lon: -0.2685448 },
 	{ addr: '5581 S Edgeberry Dr, Murray, UT 84123',lat: 40.6497445,lon: -111.9279418 },
@@ -43,8 +41,10 @@ parsed = [
 	{ addr: 'Jonesboro, Georgia', lat: 33.5215013, lon: -84.3538128 }
 ]
 
+
 fuzzy_set = FuzzySet parsed.map (addr)->
 	return addr.addr
+
 
 test_addr = (i)->
 	test 'TEST "RAW" ADDRESS: '+raw[i], (t)->
