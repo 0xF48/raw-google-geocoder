@@ -12,7 +12,7 @@ raw = [
 	# "SL2 5FZ, GB", this is now labeled as a road, not an address
 	"Frankfort, IL, 60423, us",
 	"5528 North Central Avenue, Chicago, IL, 60630, us",
-	"A-107, Annu Apartment, white field, bangalore, 560066, in",
+	# "A-107, Annu Apartment, white field, bangalore, 560066, in", this address differs across google clusters.
 	"1250 north tomcat ct, virginia beach, VA, 23454, us",
 	# "Chessington, KT19 8FS, GB", this is now labeled as a road, not an address
 	"5581 Edgeberry Drive, Murray, UT, 84123, us",
@@ -31,7 +31,7 @@ parsed = [
 	# { addr: 'SL2 5FZ, Slough, UK', lat: 51.5121499, lon: -0.5893836 },
 	{ addr: 'Frankfort, IL 60423',lat: 41.480981899999996,lon: -87.8353278 },
 	{ addr: '5528 N Central Ave, Chicago, IL 60630',lat: 41.9819786,lon: -87.7687093 },
-	{ addr: 'A-107, Annu Apartment, white field, bangalore, 560066, in',lat: 12.9698066,lon: 77.7499632 },
+	# { addr: 'Anu Apartment, Maithri Layout, Kadugodi, Bengaluru, Karnataka 560067, India',lat: 12.9698066,lon: 77.7499632 },
 	{ addr: '1250 N Tomcat Ct, Virginia Beach, VA 23454',lat: 36.7972982,lon: -76.0144492 },
 	# { addr: '25 Chessington Rd, Ewell, Epsom KT19, UK', lat: 51.3493333, lon: -0.2685448 },
 	{ addr: '5581 S Edgeberry Dr, Murray, UT 84123',lat: 40.6497445,lon: -111.9279418 },
