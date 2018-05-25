@@ -30,16 +30,15 @@ serialize = function(address, use_https) {
 
 // parse the google response body and try and choose the right address.
 parse = function(body) {
-  var addr, addr1, addr2, e, i, lat, len, lon, match, pickone;
+  var addr, addr1, addr2, e, i, lat, len, lon, match, match_addr, pickone;
   addr = lat = lon = addr1 = addr2 = null;
-  try {
-    [lat, lon] = body.match(/null,((?:\-|\+)?\d?\d?\d\.\d+\,(?:\-|\+)?\d\d?\d?.\d+)]/)[1].split(',');
-    lat = Number(lat);
-    lon = Number(lon);
-  } catch (error) {
-    e = error;
-    throw new Error('RawGGeocoderError: could not parse lat/lon ' + e.message);
+  match_addr = body.match(/null,((?:\-|\+)?\d?\d?\d\.\d+\,(?:\-|\+)?\d\d?\d?.\d+)]/);
+  if (!match_addr) {
+    throw new Error('RawGGeocoderError: lat/lon could not be matched.' + '\n' + body);
   }
+  [lat, lon] = match_addr[1].split(',');
+  lat = Number(lat);
+  lon = Number(lon);
   try {
     match = body.match(/,\\"([A-Za-z\u00C0-\u00FF\u2000-\u206F\u2E00-\u2E7F#\-,. \d]+, [A-Za-z\u00C0-\u00FF\u2000-\u206F\u2E00-\u2E7F#,. \-\d]+)\\"/g);
     pickone = null;
